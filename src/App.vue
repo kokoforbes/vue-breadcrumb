@@ -4,9 +4,28 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
+    <Breadcrumb class="row justify-content-center mt-4" :crumbs="crumbs" @selected="selected" />
     <router-view/>
   </div>
 </template>
+
+<script>
+import Breadcrumb from './components/Breadcrumb.vue';
+export default {
+  name: 'App',
+  components: { Breadcrumb },
+  data() {
+    return {
+      crumbs: ['Home', 'Category','Sub category'],
+    };
+  },
+  methods: {
+    selected(crumb) {
+      console.log(crumb);
+    },
+  },
+}
+</script>
 
 <style>
 #app {
