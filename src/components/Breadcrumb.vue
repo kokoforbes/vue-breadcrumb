@@ -2,11 +2,11 @@
   <nav>
     <ol class="breadcrumb">
       <li
-        v-for="(crumb, ci) in crumbs"
-        :key="ci"
+        v-for="(crumb, index) in crumbs"
+        :key="index"
         class="breadcrumb-item align-items-center"
       >
-        <button class="btn btn-link" :class="{ disabled: isLast(ci) }" @click="selected(crumb)">
+        <button class="btn btn-link" :class="{ disabled: isLast(index) }" @click="selected(crumb)">
           {{ crumb }}
         </button>
       </li>
