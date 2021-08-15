@@ -6,9 +6,9 @@
         :key="index"
         class="breadcrumb-item align-items-center"
       >
-        <button class="btn btn-link" :class="{ disabled: isLast(index) }" @click="selected(crumb)">
+        <div class="link" :class="{ disabled: isLast(index) }" @click="selected(crumb)">
           {{ crumb }}
-        </button>
+        </div>
       </li>
     </ol>
   </nav>
@@ -36,7 +36,33 @@ export default {
 <style scoped>
 .breadcrumb {
   background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.37rem;
+  display: flex;
+
+}
+
+/* .breadcrumb-item{
+  margin-right: 1.2rem;
+} */
+
+ol{
+  list-style: none;
+}
+
+.breadcrumb-item:not(:last-child){
+  color: #5673A8;
+  font-size: 17px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.breadcrumb-item:not(:last-child):hover {
+  text-decoration: underline;
+}
+
+
+.link:before {
+  padding: 8px;
+  color: black;
+  content: "/\00a0";
 }
 </style>
